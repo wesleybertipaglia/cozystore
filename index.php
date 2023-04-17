@@ -12,9 +12,17 @@
         require "blocks/sct_nav.php";
         require "blocks/sct_hero.php";
         require "blocks/sct_benefits.php";
-        require "blocks/products_picks_month.php";
-        require "blocks/products_picks_sellers.php";
-        require "blocks/products_picks_new.php";
+    ?>
+    
+    <main>
+        <?php
+            require "blocks/products_picks_month.php";
+            require "blocks/products_picks_sellers.php";
+            require "blocks/products_picks_new.php";
+        ?>
+    </main>
+
+    <?php
         require "blocks/sct_footer.php";
     ?>
 </body>

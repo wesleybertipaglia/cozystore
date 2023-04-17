@@ -21,7 +21,7 @@
 .g-initial {gap: initial;}
 .g-inherit {gap: inherit;}
 .g-unset {gap: unset;}
-.g-default {gap: var(--gap-default);}
+.g-default {gap: var(--default-spacing);}
 
 .g-0 {gap: 0px;}
 .g-4 {gap: 4px;}
@@ -118,6 +118,7 @@
 .pt-24 {padding-top: 24px;}
 .pt-32 {padding-top: 32px;}
 .pt-48 {padding-top: 48px;}
+.pt-64 {padding-top: 64px;}
 
 .pb-initial {padding-bottom: initial;}
 .pb-inherit {padding-bottom: inherit;}
@@ -130,6 +131,7 @@
 .pb-24 {padding-bottom: 24px;}
 .pb-32 {padding-bottom: 32px;}
 .pb-48 {padding-bottom: 48px;}
+.pb-64 {padding-bottom: 64px;}
 
 .px-initial {padding-left: initial; padding-right: initial;}
 .px-inherit {padding-left: inherit; padding-right: inherit;}
@@ -142,6 +144,7 @@
 .px-24 {padding-left: 24px; padding-right: 24px;}
 .px-32 {padding-left: 32px; padding-right: 32px;}
 .px-48 {padding-left: 48px; padding-right: 48px;}
+.px-64 {padding-left: 64px; padding-right: 64px;}
 
 .py-initial {padding-bottom: initial; padding-top: initial;}
 .py-inherit {padding-bottom: inherit; padding-top: inherit;}
@@ -154,7 +157,7 @@
 .py-24 {padding-bottom: 24px; padding-top: 24px;}
 .py-32 {padding-bottom: 32px; padding-top: 32px;}
 .py-48 {padding-bottom: 48px; padding-top: 48px;}
-.py-128 {padding-bottom: 128px; padding-top: 128px;}
+.py-64 {padding-bottom: 64px; padding-top: 64px;}
 
 /* margin */
 .m-initial {margin: initial;}
@@ -320,7 +323,7 @@
 .td-initial {text-decoration: initial;}
 .td-inherit {text-decoration: inherit;}
 .td-unset {text-decoration: unset;}
-.td-undeline {text-decoration: underline;}
+.td-underline {text-decoration: underline;}
 .td-wavy {text-decoration: wavy;}
 .td-dashed {text-decoration: dashed;}
 .td-dotted {text-decoration: dotted;}
@@ -376,7 +379,6 @@
 .cursor-pointer {cursor: pointer;}
 .cursor-grab {cursor: grab;}
 
-
 /* user-interaction */
 .usr-slct-none {user-select: none;}
 .usr-slct-unset {user-select: unset;}
@@ -401,12 +403,13 @@
 .trans-scale-1-1, .onhover-trans-scale-1-1:hover {transform: scale(1.1);}
 
 /* elements */
-.stripe {background-color: var(--light-gray); height: 1px;}
+.stripe {background-color: var(--black-light); height: 1px;}
 
 /* onresponsive */
 @media only screen and (max-width: 600px) {
     .onres-fw-wrap {flex-wrap: wrap;}
     .onres-jc-ce {justify-content: center;}
+    .onres-d-none {display: none;}
 
     .onres-w-100 {width: 100%;}
 }

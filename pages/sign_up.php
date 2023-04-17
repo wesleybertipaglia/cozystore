@@ -8,10 +8,10 @@
     <?php require "../blocks/src_files.php"; ?>
 </head>
 <body>
-    <?php
-        require "../blocks/sct_nav.php";
-        require "../blocks/form_sign_up.php";
-        require "../blocks/sct_footer.php";
-    ?>
+    <?php require "../blocks/sct_nav.php"; ?>
+    <main>
+        <?php require "../blocks/form_sign_up.php"; ?>
+    </main>
+    <?php require "../blocks/sct_footer.php"; ?>
 </body>
 </html>
