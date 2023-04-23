@@ -1,29 +1,53 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cozzy | Itens para Decoração</title>
-    <?php require "blocks/src_files.php"; ?>
+    <?php 
+        require_once "blocks/site/sct_head.php"; 
+        require_once "functions/fun_connection.php";
+    ?>
 </head>
 <body>
     <?php
-        require "blocks/sct_nav.php";
-        require "blocks/sct_hero.php";
-        require "blocks/sct_benefits.php";
+        require_once "blocks/site/sct_nav.php";
+        require_once "blocks/site/sct_hero.php";
+        require_once "blocks/site/sct_benefits.php";
     ?>
     
     <main>
         <?php
-            require "blocks/products_picks_month.php";
-            require "blocks/products_picks_sellers.php";
-            require "blocks/products_picks_new.php";
+            // best sellers
+            $_GET['max'] = 12;
+            $_GET['title'] = "Os mais vendidos";
+            $_GET['subtitle'] = "OS CLIENTES ESCOLHERAM";
+            $_GET['paragraph'] = "";
+            require "blocks/store/product/lst_products.php";
+
+            // new products
+            $_GET['max'] = 12;
+            $_GET['order'] = "id";
+            $_GET['title'] = "Novidades da semana";
+            $_GET['subtitle'] = "LANÇAMENTOS";
+            $_GET['paragraph'] = "Mobiliário para sala, cozinha, quartos, escritórios, casas de banho, exteriores, e muito mais.";
+            require "blocks/store/product/lst_products.php";
+            
+            // categrories
+            require_once "blocks/store/product/categories.php";
+
+            // best ratings
+            $_GET['max'] = 12;
+            $_GET['title'] = "Mais bem avaliados";
+            $_GET['subtitle'] = "Avaliados";
+            $_GET['paragraph'] = "";
+            require "blocks/store/product/lst_products.php";
+
+            require_once "blocks/site/sct_instagram.php";
+            require_once "blocks/site/sct_newsletter.php";
         ?>
     </main>
 
     <?php
-        require "blocks/sct_footer.php";
+        require_once "blocks/site/sct_footer.php";
     ?>
 </body>
 </html>

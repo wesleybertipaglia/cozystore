@@ -17,6 +17,8 @@
 .fw-nowrap {flex-wrap: nowrap;}
 .fw-reverse {flex-wrap: wrap-reverse;}
 
+.flex-1 {flex: 1;}
+
 /* gap */
 .g-initial {gap: initial;}
 .g-inherit {gap: inherit;}
