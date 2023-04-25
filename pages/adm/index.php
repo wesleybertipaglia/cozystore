@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <title>Cozzy | Minhas Compras</title>
+    <title>Cozzy | <?php echo "Termo de pesquisa" ?></title>
     <?php 
         // set paths
         $home = "http://localhost/cozzy/";
@@ -14,8 +14,8 @@
 <body>
     <?php require_once $path."/blocks/site/sct_nav.php"; ?>
     <main>
-        <?php require_once $path."/blocks/order/sct_orders.php"; ?>
-    </main>
+        <?php // require_once $path."/";?>
+    </main>    
     <?php require_once $path."/blocks/site/sct_footer.php"; ?>
 </body>
 </html>

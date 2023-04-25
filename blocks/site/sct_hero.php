@@ -6,7 +6,7 @@
                 <h1>Tudo que sua casa precisa</h1>
                 <p>Oferecemos tudo que sua casa precisa para ficar mais aconchegante.</p>
             </div>
-            <a href="<?php echo $home; ?>">
+            <a href="<?php echo $home.'pages/store/'; ?>">
                 <button class="btn-sec">Compre agora</button>
             </a>
         </div>

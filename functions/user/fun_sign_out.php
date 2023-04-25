@@ -1,9 +1,17 @@
 <?php 
+    // set paths
     $home = "http://localhost/cozzy/";
+    $path = realpath("../");
+
+    // unset user variables
     session_start();
-    $_SESSION['status'] = null;
-    $_SESSION['usr_name'] = null;
-    $_SESSION['usr_type'] = null;
-    $_SESSION['usr_id'] = null;
+    unset(
+        $_SESSION['status'],
+        $_SESSION['usr_name'],
+        $_SESSION['usr_type'],
+        $_SESSION['usr_id']
+    );
+    
+    // return to home
     header("location: $home");
 ?>

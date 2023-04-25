@@ -120,26 +120,15 @@ button {
     border-color: var(--accent-black);
     color: var(--accent-white);
 }
-.btn-sec {
+.btn-sec, button {
     border-color: var(--black);
     color: var(--black);
 }
-.btn-sec:hover {
+.btn-sec:hover, button:hover {
     background-color: var(--black);
     border-color: var(--black);
     color: var(--white);
 }
-
-.material-fill-0 {font-variation-settings:'FILL' 0}
-.material-fill-1 {font-variation-settings:'FILL' 1}
-
-.material-weight-100 {font-variation-settings:'wght' 100}
-.material-weight-200 {font-variation-settings:'wght' 200}
-.material-weight-300 {font-variation-settings:'wght' 300}
-.material-weight-400 {font-variation-settings:'wght' 400}
-.material-weight-500 {font-variation-settings:'wght' 500}
-.material-weight-600 {font-variation-settings:'wght' 600}
-.material-weight-700 {font-variation-settings:'wght' 700}
 
 header {
     position: relative;
@@ -167,7 +156,7 @@ form {
     max-width: 100%;
 }
 
-form input {
+input, textarea {
     width: 100%;
     padding: 0.5rem;
 }
@@ -176,13 +165,33 @@ form textarea {
     resize: vertical;
 }
 
-input[type="search"] {
-    max-width: 120px;
+.ipt-search, .btn-search {
+    padding: 0.25rem;
+    border: none;
+    border-bottom: solid 1px var(--black);
+    background: transparent;
+}
+.btn-search:hover {
+    background: transparent;
 }
 
-.product-img img {
-    height: 250px;
+input[type="file"] {
+    background: var(--accent-white);
+    border: dashed 0.25rem var(--light-black);
+}
+
+.img-box img {
     width: auto;
-    aspect-ratio: 1/1;
+    aspect-ratio: 3/4;
     object-fit: cover;
+}
+
+.img-small  img {
+    height: 300px;
+}
+.img-medium  img {
+    height: 400px;
+}
+.img-large  img {
+    height: 500px;
 }
