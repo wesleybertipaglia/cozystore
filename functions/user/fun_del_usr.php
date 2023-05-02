@@ -1,30 +1,34 @@
 <?php
-    // set paths
-    $home = "http://localhost/cozzy/";
-    $path = realpath("../");
-
-    // database connect 
-    require_once $path."/database/fun_connection.php";
-    
+    // setup
+    require_once "../../config.php";
+    require_once $path."functions/database/fun_connection.php"; 
     session_start();
-    if(isset($_GET['usr_del'])){
-        // set user variables
-        $usr_id = $_GET['usr_del'];
+    
+    if(isset($_GET['del'])){
         // sql query
+        $usr_id = $_GET['del'];
         $sql = "
             delete from users where id = $usr_id;
         ";
         $result = $connection->query($sql);
         $data = $result->fetchAll(PDO::FETCH_ASSOC);
 
-        // sign out
-        unset(
-            $_SESSION['status'],
-            $_SESSION['usr_name'],
-            $_SESSION['usr_type'],
-            $_SESSION['usr_id']
-        );
+        // verify adm delete
+        if($usr_id == $_SESSION['usr_id']) {
+            // sign out
+            unset(
+                $_SESSION['status'],
+                $_SESSION['usr_name'],
+                $_SESSION['usr_type'],
+                $_SESSION['usr_id']
+            );
+
+            // return to home
+            header("location: $home");
+        } else {
+            // return to user list
+            header("location: ".$home."pages/adm/users/adm_users.php");
+        }
+
     }
-    // return to home
-    header("location: $home");
 ?>

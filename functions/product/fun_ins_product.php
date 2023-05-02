@@ -1,10 +1,7 @@
 <?php    
-    // set paths
-    $home = "http://localhost/cozzy/";
-    $path = realpath("../");
-
-    // database connect 
-    require_once $path."/database/fun_connection.php";
+    // setup
+    require_once "../../config.php";
+    require_once $path."functions/database/fun_connection.php"; 
 
     // set product variables
     $name = $_POST['product_name'];
@@ -20,9 +17,8 @@
             insert into products (product_name, product_desc, product_cat, product_pic, product_price, product_quantity)
             values ('$name', '$desc', '$cat', '$pic', '$price', '$quantity');
         ";
-
-        $result = $connection->query($sql);
-        $data = $result->fetchAll(PDO::FETCH_ASSOC);
+        $query = $connection ->prepare($sql);
+        $query -> execute();
     }
     catch(PDOException $e) {
         die("Erro: <code>".$e->getMessage()."</code>");

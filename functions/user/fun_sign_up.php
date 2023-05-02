@@ -1,12 +1,9 @@
 <?php
-    // set paths
-    $home = "http://localhost/cozzy/";
-    $path = realpath("../");
-
-    // database connect 
-    require_once $path."/database/fun_connection.php";
-    
+    // setup
+    require_once "../../config.php";
+    require_once $path."functions/database/fun_connection.php"; 
     session_start();
+    
     if(isset($_POST['usr_email']) && isset($_POST['usr_pass'])){
         // set user variables
         $fullname = $_POST['usr_fullname'];
@@ -16,18 +13,28 @@
         $terms = $_POST['usr_terms'];
         
         // sql query
-        $sql = "
-            insert into users (usr_fullname, usr_name, usr_email, usr_pass, usr_term, usr_type) 
-            values ('$fullname', '$name', '$email', '$pass', '$terms', 2);
-        ";
+        if(isset($_POST['usr_type'])){
+            $type = $_POST['usr_type'];
+            $sql = "
+                insert into users (usr_fullname, usr_name, usr_email, usr_pass, usr_term, usr_type) 
+                values ('$fullname', '$name', '$email', '$pass', '$terms', '$type');
+            ";
+        } else {
+            $sql = "
+                insert into users (usr_fullname, usr_name, usr_email, usr_pass, usr_term, usr_type) 
+                values ('$fullname', '$name', '$email', '$pass', '$terms', 'client');
+            ";
+        }
         $result = $connection->query($sql);
         $data = $result->fetchAll(PDO::FETCH_ASSOC);
         
         // set user session
-        $_SESSION['status']='Entrou';
-        $_SESSION['usr_name']=$name;
-        $_SESSION['usr_type'] = 2;
-        $_SESSION['usr_id'] = $connection->lastInsertId();
+        if($_SESSION['usr_type'] == null) {
+            $_SESSION['status']='Entrou';
+            $_SESSION['usr_name']=$name;
+            $_SESSION['usr_type'] = "client";
+            $_SESSION['usr_id'] = $connection->lastInsertId();
+        }
 
         // return to home
         header("location: $home");

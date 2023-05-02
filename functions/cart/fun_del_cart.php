@@ -1,11 +1,11 @@
 <?php
-    // set paths
-    $home = "http://localhost/cozzy/";
-    $path = realpath("../../");
+    // setup
+    require_once "../../config.php";
+    session_start();
     
     // remove item
-    session_start();
-    unset($_SESSION['cart'][$_GET['remove']]);
+    $rmv = $_GET['remove'];
+    unset($_SESSION['cart'][$rmv]);
 
     // return to cart
     header("location: ".$home."pages/store/cart.php");

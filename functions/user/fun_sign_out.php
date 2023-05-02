@@ -1,10 +1,9 @@
 <?php 
-    // set paths
-    $home = "http://localhost/cozzy/";
-    $path = realpath("../");
+    // setup
+    require_once "../../config.php";
+    session_start();
 
     // unset user variables
-    session_start();
     unset(
         $_SESSION['status'],
         $_SESSION['usr_name'],

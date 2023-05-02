@@ -1,35 +1,39 @@
 <?php    
-    // set paths
-    $home = "http://localhost/cozzy/";
-    $path = realpath("../../");
-
-    // database connect 
-    require_once $path."/database/fun_connection.php";    
+    // setup
+    require_once "../../config.php";
+    require_once $path."functions/database/fun_connection.php"; 
+    session_start();
 
     // set product variables
+    $product_id = $_GET['edt'];
     $product_name = $_POST['product_name'];
     $product_desc = $_POST['product_desc'];
-    $product_price = $_POST['product_price'];
+    $product_cat = $_POST['product_cat'];
     $product_pic = $_POST['product_pic'];
-    $product_id = $_POST['product_id'];
+    $product_price = $_POST['product_price'];
+    $product_quantity = $_POST['product_quantity'];
 
     try {
         if(isset($_POST['product_pic'])) {
             $sql = "
                 update products
-                set name = '$product_name', 
-                descricao = '$product_desc', 
-                preco = '$product_price', 
-                foto = '$product_pic'
+                set product_name = '$product_name', 
+                product_desc = '$product_desc', 
+                product_cat = '$product_cat', 
+                product_pic = '$product_pic',
+                product_price = '$product_price', 
+                product_quantity = '$product_quantity'
                 where id = $product_id
             ";
         } else {
             $sql = "
-                update products
-                set name = '$product_name', 
-                description = '$product_desc', 
-                price = '$product_price'
-                where id = $product_id
+            update products
+            set product_name = '$product_name', 
+            product_desc = '$product_desc', 
+            product_cat = '$product_cat', 
+            product_price = '$product_price', 
+            product_quantity = '$product_quantity'
+            where id = $product_id
             ";
         }
 

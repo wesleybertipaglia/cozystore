@@ -1,12 +1,9 @@
 <?php
-    // set paths
-    $home = "http://localhost/cozzy/";
-    $path = realpath("../");
-
-    // database connect
-    require $path."/database/fun_connection.php";
-    
+    // setup
+    require_once "../../config.php";
+    require_once $path."functions/database/fun_connection.php"; 
     session_start();
+    
     try {
         if(isset($_POST['usr_email']) && isset($_POST['usr_pass'])){
             $usr_email = $_POST['usr_email'];
@@ -25,16 +22,14 @@
                     
                     echo "<p>Login realizado com sucesso! ".$_SESSION['usr_name']."</p>";
                 }
-            }
-            else{
-                echo "<p>E-mail ou senha inválidos</p>";
-                echo "<p>Preencha os campos, clique <a href='$home/cozzy/pages/user/sign_in.php'>aqui</a></p>";
+                
+                // return to home
+                header("location: $home");
+            } else {
+                require $path."includes/user/sct_invalid_sign_in.php";
             }
         }
     } catch (PDOException $e) {
         die("Erro: <code>" . $e->getMessage() . "</code>");
     }
-
-    // return to home
-    header("location: $home");
 ?>

@@ -47,7 +47,11 @@ body {
     justify-content: space-between;
 }
 
-nav {z-index: 1;}
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
 
 main {
     display: flex;
@@ -82,6 +86,7 @@ footer {background: var(--accent-white); color: var(--black);}
 .color-primary {color: var(--primary);}
 
 .border-stripe {border-bottom: solid 1px var(--light-black);}
+.border-light-black {border: solid 1px var(--light-black);}
 
 /* text */
 p {color: var(--black);}
@@ -156,9 +161,12 @@ form {
     max-width: 100%;
 }
 
-input, textarea {
+input, textarea, select {
     width: 100%;
     padding: 0.5rem;
+    background: var(--white);
+    border: solid 1px #343A4060;
+    border-radius: 0.25rem;
 }
 
 form textarea {
@@ -168,6 +176,7 @@ form textarea {
 .ipt-search, .btn-search {
     padding: 0.25rem;
     border: none;
+    border-radius: 0;
     border-bottom: solid 1px var(--black);
     background: transparent;
 }
@@ -181,17 +190,90 @@ input[type="file"] {
 }
 
 .img-box img {
-    width: auto;
+    height: auto;
     aspect-ratio: 3/4;
     object-fit: cover;
 }
 
-.img-small  img {
-    height: 300px;
+.img-small img {
+    width: 10rem;
 }
-.img-medium  img {
-    height: 400px;
+.img-medium img {
+    width: 15rem;
 }
-.img-large  img {
-    height: 500px;
+.img-large img {
+    width: 20rem;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.label-small {
+    border: solid 1px var(--black);
+    border-radius: 1rem;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+}
+.label-small:hover {
+    text-decoration: none;
+    background-color: var(--accent-white);
+}
+
+.float-box {
+    position: relative;
+}
+
+.float-button {
+    background: var(--white);
+    padding: 0.5rem; 
+    border-radius: 50%;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    height: 2.5rem;
+    width: 2.5rem;
+    display: none;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.float-button img {
+    aspect-ratio: 1/1;
+    height: 1.5rem;
+    width: auto;
+}
+
+.float-box:hover .float-button {
+    display: block;
+}
+
+table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    overflow-x: scroll;
+  }
+  
+  table td, table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  table tr:nth-child(even){background-color: var(--white);}
+  
+  table tr:hover {background-color: var(--accent-white);}
+  
+  table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: var(--black);
+    color: white;
+  }
+
+@media only screen and (max-width: 600px) {
+    .img-medium, .img-large {
+        width: 100%;
+    }
 }
