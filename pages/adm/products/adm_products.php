@@ -3,16 +3,22 @@
 <head>
     <?php 
         require_once "../../../config.php";
-        require_once $path."includes/site/sct_head.php"; 
-        require_once $path."functions/database/fun_connection.php";
+        require_once $path_includes."store/site/sct_head.php"; 
+        require_once $path_functions."adm/database/fun_connection.php";
     ?>
     <title>Cozzy | Estoque</title>
 </head>
 <body>
-    <?php require_once $path."includes/site/sct_nav.php"; ?>
+    <?php require_once $path_includes."store/site/sct_nav.php"; ?>
     <main>
-        <?php require_once $path."includes/product/adm_products.php"; ?>
+        <?php 
+            if($_SESSION['usr_type'] == "adm") {
+                require_once $path_includes."adm/products/adm_products.php";
+            } else {
+                require_once $path_includes."adm/validation/sct_invalid_permission.php";
+            }
+        ?>
     </main>
-    <?php require_once $path."includes/site/sct_footer.php"; ?>
+    <?php require_once $path_includes."store/site/sct_footer.php"; ?>
 </body>
 </html>

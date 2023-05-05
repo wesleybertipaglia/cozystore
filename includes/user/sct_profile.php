@@ -11,7 +11,7 @@
             <div class="col g-24">
                 <h4><?php echo $usr_name ?></h4> 
                     <?php if ($usr_type == "adm") {
-                        require_once $path_includes."user/sct_adm.php";
+                        require_once $path_includes."adm/sct_adm.php";
                     } else {
                         require_once $path_includes."user/sct_client.php";
                     }
