@@ -3,16 +3,22 @@
 <head>
     <?php 
         require_once "../../../config.php";
-        require_once $path."includes/site/sct_head.php"; 
-        require_once $path."functions/database/fun_connection.php";
+        require_once $path_includes."store/site/sct_head.php"; 
+        require_once $path_functions."adm/database/fun_connection.php";
     ?>
-    <title>Cozzy | <?php echo $_GET['title']; ?></title>
+    <title>Cozzy | Vendas</title>
 </head>
 <body>
-    <?php require_once $path."includes/site/sct_nav.php"; ?>
+    <?php require_once $path_includes."store/site/sct_nav.php"; ?>
     <main>
-        <?php require_once $path."includes/order/sct_orders.php"; ?>
+        <?php 
+            if($_SESSION['usr_type'] == "adm") {
+                require_once $path_includes."adm/orders/adm_orders.php";
+            } else {
+                require_once $path_includes."adm/validation/sct_invalid_permission.php";
+            }
+        ?>
     </main>
-    <?php require_once $path."includes/site/sct_footer.php"; ?>
+    <?php require_once $path_includes."store/site/sct_footer.php"; ?>
 </body>
 </html>

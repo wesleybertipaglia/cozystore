@@ -13,4 +13,8 @@
 
     // session start
     session_start();
+
+    // desativa warnings
+    error_reporting(0);
+    ini_set('display_errors', 0);
 ?>
