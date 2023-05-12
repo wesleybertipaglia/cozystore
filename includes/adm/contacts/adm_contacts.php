@@ -19,7 +19,7 @@
         </div>
 
         <div class="row g-16 jc-fe pb-8">
-            <a href="<?php echo $home."pages/adm/contacts/form_contact.php"; ?>">Novo contato</a>
+            <a href="<?php echo $home."pages/adm/contacts/adm_form_contact.php"; ?>">Novo contato</a>
         </div>
 
         <table>
@@ -36,7 +36,7 @@
                         <td><?php echo $row['usr_id'] ?></td>
                         <td><?php echo $row['contact_type'] ?></td>
                         <td><?php echo $row['contact_value'] ?></td>
-                        <td><a href="<?php echo $home.'pages/adm/contacts/form_contact.php?edt='.$row['id']; ?>">Editar</a></td>
+                        <td><a href="<?php echo $home.'pages/adm/contacts/adm_form_contact.php?edt='.$row['id']; ?>">Editar</a></td>
                         <td><a href="<?php echo $home.'functions/adm/contacts/fun_del_contact.php?del='.$row['id']; ?>">Deletar</a></td>
                     </tr>
                 <?php } ?>
