@@ -20,7 +20,7 @@
 
             <div class="row g-8">
                 <p>Não tem conta?</p>
-                <a href="<?php echo $home.'pages/user/sign_up.php' ?>" class="td-underline">Cadastre-se</a>
+                <a href="<?php echo $home.'pages/user/auth/form_user.php' ?>" class="td-underline">Cadastre-se</a>
             </div>
         </form>
     </div>
